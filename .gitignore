@@ -21,3 +21,30 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/.idea/vcs.xml
+/Task03.iml
+/.idea/misc.xml
+/.idea/jarRepositories.xml
+/.idea/compiler.xml
+/.idea/.gitignore
+/.idea/sonarlint/issuestore/index.pb
+/.idea/uiDesigner.xml
+/.idea/sonarlint/issuestore/3/d/3daa60d41e2fdfc437cb259e7c323ba78768a3e2
+/.idea/sonarlint/issuestore/3/f/3f653888043c66d98d4d7650a57652bf0b48c46d
+/.idea/sonarlint/issuestore/4/c/4c3fd6eab496f6b44f3fb5f24116fea3733de6cc
+/.idea/sonarlint/issuestore/5/b/5b458978aa5d917e1769591e6977934c76b4bf83
+/.idea/sonarlint/issuestore/3/9/39d6b9a972377bae93da26220c47bf03a8666087
+/.idea/sonarlint/issuestore/7/2/72fe8fea8066801dd511acdcee0dc470c9f7f424
+/.idea/sonarlint/issuestore/4/6/465cd8ab059a408191d1ddc061ee09062e3dfee2
+/.idea/sonarlint/issuestore/0/5/05600f234529446aa782c0d1398329a9484465c3
+/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+/.idea/sonarlint/issuestore/9/1/914249d1d4d075516afdc14004ec1def459a17f9
+/.idea/sonarlint/issuestore/a/1/a1f27667173dae121ffc578836697d28c732c922
+/.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+/.idea/sonarlint/issuestore/c/7/c74134596a1b2ee8c3d70218facea7b1b226aba9
+/.idea/sonarlint/issuestore/b/6/b60f122c2013016ff10e1f7750db81ff203f2254
+/.idea/sonarlint/issuestore/e/f/ef21543ddf9a60aec842755f253551769ccf4ba3
+/target/test-classes/input.txt
+/.idea/sonarlint/issuestore/f/7/f70d99ee6e06be1948fb11c6d13fbf30ac59b9ec
+/.idea/sonarlint/issuestore/f/e/fe4f7a210f356776578290882ead86f476a42f58
+/target/classes/META-INF/Task03.kotlin_module
