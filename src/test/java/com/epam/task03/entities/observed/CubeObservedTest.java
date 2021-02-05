@@ -1,6 +1,6 @@
-package com.epam.task03.entities;
+package com.epam.task03.entities.observed;
 
-import com.epam.task03.logic.CubeObserver;
+import com.epam.task03.observer.CubeObserver;
 import org.junit.Assert;
 import org.junit.Test;
 

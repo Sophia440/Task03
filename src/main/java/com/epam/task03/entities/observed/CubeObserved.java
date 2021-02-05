@@ -1,6 +1,8 @@
-package com.epam.task03.entities;
+package com.epam.task03.entities.observed;
 
-import com.epam.task03.logic.Observer;
+import com.epam.task03.entities.Cube;
+import com.epam.task03.entities.Point;
+import com.epam.task03.observer.Observer;
 
 import java.util.ArrayList;
 import java.util.List;

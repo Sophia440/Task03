@@ -1,4 +1,4 @@
-package com.epam.task03.logic;
+package com.epam.task03.observer;
 
 import com.epam.task03.entities.Cube;
 

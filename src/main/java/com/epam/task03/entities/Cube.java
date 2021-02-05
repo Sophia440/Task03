@@ -21,6 +21,10 @@ public class Cube {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public double getCenterX() {
         return center.getX();
     }
@@ -39,6 +43,21 @@ public class Cube {
 
     protected void setEdgeLength(double edgeLength) {
         this.edgeLength = edgeLength;
+    }
+
+    public boolean xCoordinateBetween(double minX, double maxX) {
+        double xCoordinate = this.getCenterX();
+        return xCoordinate >= minX && xCoordinate <= maxX;
+    }
+
+    public boolean yCoordinateBetween(double minY, double maxY) {
+        double yCoordinate = this.getCenterY();
+        return yCoordinate >= minY && yCoordinate <= maxY;
+    }
+
+    public boolean zCoordinateBetween(double minZ, double maxZ) {
+        double zCoordinate = this.getCenterZ();
+        return zCoordinate >= minZ && zCoordinate <= maxZ;
     }
 
     @Override

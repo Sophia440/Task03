@@ -1,7 +1,8 @@
-package com.epam.task03.logic;
+package com.epam.task03.observer;
 
 import com.epam.task03.entities.Cube;
 import com.epam.task03.entities.Parameters;
+import com.epam.task03.logic.CubeCalculator;
 
 import java.util.HashMap;
 import java.util.Map;

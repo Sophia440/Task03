@@ -1,4 +1,4 @@
-package com.epam.task03.entities;
+package com.epam.task03.entities.observed;
 
 public class InvalidEdgeLengthException extends Exception {
 

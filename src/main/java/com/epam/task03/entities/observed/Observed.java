@@ -1,6 +1,6 @@
-package com.epam.task03.entities;
+package com.epam.task03.entities.observed;
 
-import com.epam.task03.logic.Observer;
+import com.epam.task03.observer.Observer;
 
 public interface Observed {
 
