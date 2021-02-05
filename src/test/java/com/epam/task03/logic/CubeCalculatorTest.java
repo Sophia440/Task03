@@ -5,9 +5,9 @@ import com.epam.task03.entities.Point;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CubeLogicTest {
+public class CubeCalculatorTest {
 
-    private final CubeLogic cubeLogic = new CubeLogic();
+    private final CubeCalculator cubeCalculator = new CubeCalculator();
     private static final Cube VALID_CUBE = new Cube(2.0, 0.4, 0.0, -1.0);
     private static final Cube CUBE_WITH_CENTER_IN_ZERO = new Cube(2.0, 0.0, 0.0, 0.0);
     private static final Cube UNCUT_CUBE = new Cube(2.0, 3.0, 3.0, 3.0);
@@ -15,30 +15,37 @@ public class CubeLogicTest {
     private static final double DELTA = 1e-15;
 
     @Test
+    public void testCalculatePerimeterShouldSucceed() {
+        double expected = 24.0;
+        double actual = cubeCalculator.calculateArea(VALID_CUBE);
+        Assert.assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
     public void testCalculateAreaShouldSucceed() {
         double expected = 24.0;
-        double actual = cubeLogic.calculateArea(VALID_CUBE);
+        double actual = cubeCalculator.calculateArea(VALID_CUBE);
         Assert.assertEquals(expected, actual, DELTA);
     }
 
     @Test
     public void testCalculateVolumeShouldSucceed() {
         double expected = 8.0;
-        double actual = cubeLogic.calculateVolumeOfWholeCube(VALID_CUBE);
+        double actual = cubeCalculator.calculateVolumeOfWholeCube(VALID_CUBE);
         Assert.assertEquals(expected, actual, DELTA);
     }
 
     @Test
     public void testCalculateVolumeRatioWhenCubeIsCutByACoordinateHyperplaneShouldSucceedWithCenterNotInZero() {
         double expected = 0.25;
-        double actual = cubeLogic.calculateVolumeRatioWhenCubeIsCutByACoordinateHyperplane(VALID_CUBE);
+        double actual = cubeCalculator.calculateVolumeRatioWhenCubeIsCutByACoordinateHyperplane(VALID_CUBE);
         Assert.assertEquals(expected, actual, DELTA);
     }
 
     @Test
     public void testCalculateVolumeRatioWhenCubeIsCutByACoordinateHyperplaneShouldSucceedWithCenterInZero() {
         double expected = 0.5;
-        double actual = cubeLogic.calculateVolumeRatioWhenCubeIsCutByACoordinateHyperplane(
+        double actual = cubeCalculator.calculateVolumeRatioWhenCubeIsCutByACoordinateHyperplane(
                 CUBE_WITH_CENTER_IN_ZERO);
         Assert.assertEquals(expected, actual, DELTA);
     }
@@ -46,27 +53,27 @@ public class CubeLogicTest {
     @Test
     public void testCalculateVolumeRatioWhenCubeIsCutByACoordinateHyperplaneShouldSucceedWithUncutCube() {
         double expected = 1.0;
-        double actual = cubeLogic.calculateVolumeRatioWhenCubeIsCutByACoordinateHyperplane(UNCUT_CUBE);
+        double actual = cubeCalculator.calculateVolumeRatioWhenCubeIsCutByACoordinateHyperplane(UNCUT_CUBE);
         Assert.assertEquals(expected, actual, DELTA);
     }
 
     @Test
     public void testHasASideThatBelongsToACoordinateHyperplaneShouldSucceedWhenCubeHasSideLikeThat() {
-        Assert.assertTrue(cubeLogic.hasASideThatBelongsToACoordinateHyperplane(VALID_CUBE));
+        Assert.assertTrue(cubeCalculator.hasASideThatBelongsToACoordinateHyperplane(VALID_CUBE));
     }
 
     @Test
     public void testHasASideThatBelongsToACoordinateHyperplaneShouldSucceedWhenCubeHasNoSideLikeThat() {
-        Assert.assertFalse(cubeLogic.hasASideThatBelongsToACoordinateHyperplane(CUBE_WITH_CENTER_IN_ZERO));
+        Assert.assertFalse(cubeCalculator.hasASideThatBelongsToACoordinateHyperplane(CUBE_WITH_CENTER_IN_ZERO));
     }
 
     @Test
     public void testIsACubeShouldSucceedWithObjectOfCubeClass() {
-        Assert.assertTrue(cubeLogic.isACube(VALID_CUBE));
+        Assert.assertTrue(cubeCalculator.isACube(VALID_CUBE));
     }
 
     @Test
-    public void testIsACubeShouldFailWithObjectOfOtherClass() {
-        Assert.assertTrue(cubeLogic.isACube(VALID_POINT));
+    public void testIsACubeShouldSucceedWithObjectOfOtherClass() {
+        Assert.assertFalse(cubeCalculator.isACube(VALID_POINT));
     }
 }
