@@ -6,9 +6,9 @@ import java.util.Comparator;
 
 public class CubeComparatorByCenterYCoordinate implements Comparator<Cube> {
 
-    public int compare(Cube cubeA, Cube cubeB) {
-        double cubeACenterY = cubeA.getCenterY();
-        double cubeBCenterY = cubeB.getCenterY();
-        return Double.compare(cubeACenterY, cubeBCenterY);
+    public int compare(Cube firstCube, Cube secondCube) {
+        double firstCubeCenterY = firstCube.getCenterY();
+        double secondCubeCenterY = secondCube.getCenterY();
+        return Double.compare(firstCubeCenterY, secondCubeCenterY);
     }
 }

@@ -1,4 +1,4 @@
-package com.epam.task03.entities.observed;
+package com.epam.task03.entities.observable;
 
 import com.epam.task03.entities.Cube;
 import com.epam.task03.entities.Point;
@@ -8,27 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class CubeObserved extends Cube implements Observed {
+public class CubeObservable extends Cube implements Observable {
 
     private List<Observer> observers;
 
-    public void updateEdgeLength(double newEdgeLength) throws InvalidEdgeLengthException {
-        if (newEdgeLength <= 0) {
-            throw new InvalidEdgeLengthException("Edge length must be a positive number");
-        } else {
-            this.setEdgeLength(newEdgeLength);
-            notifyObservers();
-        }
-    }
-
-    public CubeObserved(double edgeLength, Point center) {
+    public CubeObservable(double edgeLength, Point center) {
         super(edgeLength, center);
         this.observers = new ArrayList<>();
     }
 
-    public CubeObserved(double edgeLength, double x, double y, double z) {
+    public CubeObservable(double edgeLength, double x, double y, double z) {
         super(edgeLength, x, y, z);
         this.observers = new ArrayList<>();
+    }
+
+    public void updateEdgeLength(double newEdgeLength) {
+        this.setEdgeLength(newEdgeLength);
+        notifyObservers();
     }
 
     @Override
@@ -65,7 +61,7 @@ public class CubeObserved extends Cube implements Observed {
         if (!super.equals(o)) {
             return false;
         }
-        CubeObserved cubeObserved = (CubeObserved) o;
+        CubeObservable cubeObserved = (CubeObservable) o;
         return Objects.equals(observers, cubeObserved.observers);
     }
 

@@ -1,49 +1,42 @@
 package com.epam.task03.repository;
 
 import com.epam.task03.entities.Cube;
-import com.epam.task03.specifications.CubeSpecificationByID;
+import com.epam.task03.specifications.CubeSpecificationByAreaRange;
+import com.epam.task03.specifications.CubeSpecificationByCenterCoordinates;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class CubeRepositoryImplementedTest {
 
     private final CubeRepositoryImplemented repository = new CubeRepositoryImplemented();
-    private static final Cube VALID_CUBE = new Cube(2.0, 0.4, 0.0, -1.0);
-    private static final Cube VALID_CUBE_TO_UPDATE_WITH = new Cube(3.0, 0.4, 0.0, -1.0);
-    private static final Cube FIRST_CUBE_FOR_QUERY_TEST = new Cube(1.0, 0.0, 0.0, 0.0);
-    private static final Cube SECOND_CUBE_FOR_QUERY_TEST = new Cube(2.0, 0.0, 0.0, 0.0);
+    private static final Cube FIRST_CUBE = new Cube(1.0, 5.0, 5.0, 5.0);
+    private static final Cube SECOND_CUBE = new Cube(2.0, 0.0, 0.0, 0.0);
+    private static final Cube THIRD_CUBE = new Cube(3.0, -1.0, -1.0, -1.0);
+    private static final List<Cube> CUBES = Arrays.asList(FIRST_CUBE, SECOND_CUBE, THIRD_CUBE);
+    private static final List<Cube> EXPECTED = Arrays.asList(SECOND_CUBE);
+    private static final double MIN_AREA = 10.0;
+    private static final double MAX_AREA = 30.0;
+    private static final double MIN_XYZ = 0.0;
+    private static final double MAX_XYZ = 3.0;
 
-    @Test(expected = NoSuchCubeException.class)
-    public void testUpdateCubeShouldSucceedWithCubeThatDoesNotBelongToRepository()
-            throws NoSuchCubeException {
-        List<Cube> expected = Arrays.asList(VALID_CUBE);
-        repository.updateCube(VALID_CUBE);
-        Assert.assertEquals(expected, repository.getRepository());
+    @Test()
+    public void testQueryWithSpecificationByAreaRangeShouldSucceed() {
+        repository.addAllCubes(CUBES);
+        CubeSpecificationByAreaRange specification = new CubeSpecificationByAreaRange(MIN_AREA, MAX_AREA);
+        Map<Integer, Cube> actualAsMap = repository.query(specification);
+        List<Cube> actualAsList = new ArrayList<>(actualAsMap.values());
+        Assert.assertEquals(EXPECTED, actualAsList);
     }
 
     @Test()
-    public void testUpdateCubeShouldSucceedWithCubeThatDoesBelongToRepository()
-            throws NoSuchCubeException {
-        repository.addCube(VALID_CUBE);
-        List<Cube> expected = Arrays.asList(VALID_CUBE_TO_UPDATE_WITH);
-        int validCubeID = VALID_CUBE.getId();
-        VALID_CUBE_TO_UPDATE_WITH.setId(validCubeID);
-        repository.updateCube(VALID_CUBE_TO_UPDATE_WITH);
-        Assert.assertEquals(expected, repository.getRepository());
+    public void testQueryWithSpecificationByCenterCoordinatesShouldSucceed() {
+        repository.addAllCubes(CUBES);
+        CubeSpecificationByCenterCoordinates specification = new CubeSpecificationByCenterCoordinates(MIN_XYZ, MAX_XYZ);
+        Map<Integer, Cube> actualAsMap = repository.query(specification);
+        List<Cube> actualAsList = new ArrayList<>(actualAsMap.values());
+        Assert.assertEquals(EXPECTED, actualAsList);
     }
 
-    @Test()
-    public void testQueryShouldSucceedWithSpecificationByID() {
-        repository.removeAllCubes();
-        repository.addCube(FIRST_CUBE_FOR_QUERY_TEST);
-        repository.addCube(SECOND_CUBE_FOR_QUERY_TEST);
-        int secondCubeID = SECOND_CUBE_FOR_QUERY_TEST.getId();
-        List<Cube> expected = Arrays.asList(SECOND_CUBE_FOR_QUERY_TEST);
-        CubeSpecificationByID specificationByID = new CubeSpecificationByID(secondCubeID);
-        List<Cube> actual = repository.query(specificationByID);
-        Assert.assertEquals(expected, actual);
-    }
 }

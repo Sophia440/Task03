@@ -13,13 +13,21 @@ public class CubeSpecificationByCenterCoordinates implements CubeSpecification {
 
     public CubeSpecificationByCenterCoordinates(double minX, double maxX, double minY, double maxY,
                                                 double minZ, double maxZ) {
-        super();
         this.minX = minX;
         this.maxX = maxX;
         this.minY = minY;
         this.maxY = maxY;
         this.minZ = minZ;
         this.maxZ = maxZ;
+    }
+
+    public CubeSpecificationByCenterCoordinates(double minXYZ, double maxXYZ) {
+        this.minX = minXYZ;
+        this.maxX = maxXYZ;
+        this.minY = minXYZ;
+        this.maxY = maxXYZ;
+        this.minZ = minXYZ;
+        this.maxZ = maxXYZ;
     }
 
     @Override

@@ -3,16 +3,16 @@ package com.epam.task03.repository;
 import com.epam.task03.entities.Cube;
 import com.epam.task03.specifications.CubeSpecification;
 
-import java.util.List;
+import java.util.Map;
 
 public interface CubeRepository {
 
     void addCube(Cube cube);
 
-    void removeCube(Cube cube);
+    void removeCube(Integer id);
 
-    void updateCube(Cube cube) throws NoSuchCubeException;
+    void updateCube(Integer id, Cube cube);
 
-    List<Cube> query(CubeSpecification specification);
+    Map<Integer, Cube> query(CubeSpecification specification);
 
 }

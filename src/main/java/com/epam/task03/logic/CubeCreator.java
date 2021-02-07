@@ -4,7 +4,6 @@ import com.epam.task03.data.DataException;
 import com.epam.task03.data.DataReader;
 import com.epam.task03.entities.Cube;
 import com.epam.task03.parser.CubeParser;
-import com.epam.task03.parser.CubeParserException;
 import com.epam.task03.validator.DataValidator;
 
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class CubeCreator {
         this.parser = parser;
     }
 
-    public List<Cube> process(String filename) throws DataException, CubeParserException {
+    public List<Cube> process(String filename) throws DataException {
         List<String> lines = reader.readData(filename);
         List<String> validLines = new ArrayList<>();
         for (String line : lines) {

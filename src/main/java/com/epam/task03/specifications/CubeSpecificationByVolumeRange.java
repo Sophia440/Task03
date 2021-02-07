@@ -10,7 +10,6 @@ public class CubeSpecificationByVolumeRange implements CubeSpecification {
     private CubeCalculator calculator;
 
     public CubeSpecificationByVolumeRange(double minVolume, double maxVolume) {
-        super();
         this.minVolume = minVolume;
         this.maxVolume = maxVolume;
         this.calculator = new CubeCalculator();
@@ -18,7 +17,7 @@ public class CubeSpecificationByVolumeRange implements CubeSpecification {
 
     @Override
     public boolean specified(Cube cube) {
-        double volume = calculator.calculateVolumeOfWholeCube(cube);
+        double volume = calculator.calculateVolumeWholeCube(cube);
         return volume >= minVolume && volume <= maxVolume;
     }
     

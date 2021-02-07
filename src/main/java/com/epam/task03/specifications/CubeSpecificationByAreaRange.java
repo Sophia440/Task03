@@ -10,7 +10,6 @@ public class CubeSpecificationByAreaRange implements CubeSpecification {
     private CubeCalculator calculator;
 
     public CubeSpecificationByAreaRange(double minArea, double maxArea) {
-        super();
         this.minArea = minArea;
         this.maxArea = maxArea;
         this.calculator = new CubeCalculator();

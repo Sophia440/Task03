@@ -13,27 +13,27 @@ public class DataValidatorTest {
     private static final String DIFFERENT_DELIMITERS = "2.0,0.0;0.0:0.0";
 
     @Test
-    public void testValidateShouldSucceedWithValidData() {
+    public void testValidateWithValidDataShouldSucceed() {
         Assert.assertTrue(validator.validate(VALID_DATA));
     }
 
     @Test
-    public void testValidateShouldSucceedWithNegativeFirstNumber() {
+    public void testValidateWithNegativeFirstNumberShouldSucceed() {
         Assert.assertFalse(validator.validate(NEGATIVE_FIRST_NUMBER));
     }
 
     @Test
-    public void testValidateShouldSucceedWithInvalidNumber() {
+    public void testValidateWithInvalidNumbersShouldSucceed() {
         Assert.assertFalse(validator.validate(CONTAINS_INVALID_NUMBERS));
     }
 
     @Test
-    public void testValidateShouldSucceedWithInvalidAmountOfNumbers() {
+    public void testValidateWithInvalidAmountOfNumbersShouldSucceed() {
         Assert.assertFalse(validator.validate(INVALID_AMOUNT_OF_NUMBERS));
     }
 
     @Test
-    public void testValidateShouldSucceedWithDifferentDelimiters() {
+    public void testValidateWithDifferentDelimitersShouldSucceed() {
         Assert.assertTrue(validator.validate(DIFFERENT_DELIMITERS));
     }
 }

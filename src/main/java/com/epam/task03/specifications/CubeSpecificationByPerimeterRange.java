@@ -10,7 +10,6 @@ public class CubeSpecificationByPerimeterRange implements CubeSpecification {
     private CubeCalculator calculator;
 
     public CubeSpecificationByPerimeterRange(double minPerimeter, double maxPerimeter) {
-        super();
         this.minPerimeter = minPerimeter;
         this.maxPerimeter = maxPerimeter;
         this.calculator = new CubeCalculator();

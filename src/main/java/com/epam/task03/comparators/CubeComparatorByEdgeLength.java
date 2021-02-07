@@ -6,9 +6,9 @@ import java.util.Comparator;
 
 public class CubeComparatorByEdgeLength implements Comparator<Cube> {
 
-    public int compare(Cube cubeA, Cube cubeB) {
-        double cubeAEdgeLength = cubeA.getEdgeLength();
-        double cubeBEdgeLength = cubeB.getEdgeLength();
-        return Double.compare(cubeAEdgeLength, cubeBEdgeLength);
+    public int compare(Cube firstCube, Cube secondCube) {
+        double firstCubeEdgeLength = firstCube.getEdgeLength();
+        double secondCubeEdgeLength = secondCube.getEdgeLength();
+        return Double.compare(firstCubeEdgeLength, secondCubeEdgeLength);
     }
 }

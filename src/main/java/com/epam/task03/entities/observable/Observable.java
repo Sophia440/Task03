@@ -1,8 +1,8 @@
-package com.epam.task03.entities.observed;
+package com.epam.task03.entities.observable;
 
 import com.epam.task03.observer.Observer;
 
-public interface Observed {
+public interface Observable {
 
     void attachObserver(Observer observer);
 

@@ -14,13 +14,13 @@ public class DataReaderTest {
     private final DataReader reader = new DataReader();
 
     @Test
-    public void testReadDataShouldSucceedWithProvidedPath() throws DataException {
+    public void testReadDataWithProvidedPathShouldSucceed() throws DataException {
         List<String> actualData = reader.readData(PATH_TO_INPUT_FILE);
         Assert.assertEquals(VALID_DATA, actualData);
     }
 
     @Test
-    public void testReadDataShouldFailIfFileDoesNotEndWithSymbolOfNewLine() throws DataException {
+    public void testReadDataWhenFileEndsWithEmptyLineShouldFail() throws DataException {
         List<String> actualData = reader.readData(PATH_TO_INPUT_FILE);
         Assert.assertEquals(INVALID_DATA, actualData);
     }
